@@ -1,23 +1,16 @@
 import 'package:whatsapp/Export.dart';
-import 'package:whatsapp/Screens/Verification/Verification.dart';
 
-class SignUp extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _LoginScreenState extends State<LoginScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
   bool isCheck = false;
-
-void _alert(){
-  showDialog(context: context, builder: (context){
-    return DialogBox();
-  });
-}
 
 
 
@@ -64,21 +57,21 @@ void _alert(){
                         ),
                       ),
                       SizedBox(height: 180,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Sign In To Your Account',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.white
+                            ),
+                          )
+                        ],
+                      ),
                       Container(
                         child: Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('Sign Up for Free',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 25,
-                                      color: Colors.white
-                                  ),
-                                )
-                              ],
-                            ),
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
@@ -125,7 +118,7 @@ void _alert(){
                                           GestureDetector(
                                             onTap: (){
                                               if(_formKey.currentState!.validate()) {
-                                                _alert();
+
                                               }
                                             },
                                             child: Container(
@@ -136,7 +129,7 @@ void _alert(){
                                                   borderRadius: BorderRadius.all(Radius.circular(50))
                                               ),
                                               child: Center(
-                                                child: Text('Sign Up',
+                                                child: Text('Sign In',
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       fontSize: 30,
@@ -153,13 +146,12 @@ void _alert(){
                                               Text('Dont Have An Account? ',
                                                 style: TextStyle(
                                                   fontSize: 15.0,
-                                                  color: kTextWhiteColor,
                                                 ),),
                                               InkWell(
                                                 onTap: (){
-                                                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                                                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
                                                 },
-                                                child: Text('Sign In',
+                                                child: Text('Sign Up',
                                                   style: TextStyle(
                                                     fontSize: 15.0,
                                                     color: kMainColor,

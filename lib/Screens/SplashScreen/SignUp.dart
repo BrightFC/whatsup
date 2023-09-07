@@ -1,16 +1,23 @@
 import 'package:whatsapp/Export.dart';
+import 'package:whatsapp/Screens/Verification/Verification.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignUp extends StatefulWidget {
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpState extends State<SignUp> {
 
   final _formKey = GlobalKey<FormState>();
 
   bool isCheck = false;
+
+void _alert(){
+  showDialog(context: context, builder: (context){
+    return DialogBox();
+  });
+}
 
 
 
@@ -57,21 +64,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(height: 180,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Sign In To Your Account',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.white
-                            ),
-                          )
-                        ],
-                      ),
                       Container(
                         child: Column(
                           children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('Sign Up for Free',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.white
+                                  ),
+                                )
+                              ],
+                            ),
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
@@ -118,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           GestureDetector(
                                             onTap: (){
                                               if(_formKey.currentState!.validate()) {
-                                                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                                                _alert();
                                               }
                                             },
                                             child: Container(
@@ -129,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   borderRadius: BorderRadius.all(Radius.circular(50))
                                               ),
                                               child: Center(
-                                                child: Text('Sign In',
+                                                child: Text('Sign Up',
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       fontSize: 30,
@@ -143,16 +150,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
-                                              Text('Dont Have An Account? ',
+                                              Text('Already Have An Account? ',
                                                 style: TextStyle(
                                                   fontSize: 15.0,
-                                                  color: kTextWhiteColor,
                                                 ),),
                                               InkWell(
                                                 onTap: (){
-                                                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                                                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                                                 },
-                                                child: Text('Sign Up',
+                                                child: Text('Sign In',
                                                   style: TextStyle(
                                                     fontSize: 15.0,
                                                     color: kMainColor,
